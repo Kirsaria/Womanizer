@@ -1,0 +1,14 @@
+﻿<Window x:Class="Womanizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Womanizer"
+        mc:Ignorable="d"
+        Title="Womanizer" Height="642" Width="1008" Foreground="#FF164825" Background="#FF376A52">
+    <Grid x:Name="MainGrid"  Background="#FF56AE81">
+        <Calendar x:Name="Calendar1" DisplayDateStart="2024-09-01" DisplayDateEnd="2024-09-30" HorizontalAlignment="Left" Margin="42,33,0,0" VerticalAlignment="Top" Width="204" Height="152"/>
+        <Calendar x:Name="Calendar2" DisplayDateStart="2024-10-01" DisplayDateEnd="2024-10-30" HorizontalAlignment="Left" Margin="54,190,0,0" VerticalAlignment="Top"/>
+        <Calendar x:Name="Calendar3" DisplayDateStart="2024-11-01" DisplayDateEnd="2024-11-30" HorizontalAlignment="Left" Margin="54,358,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
