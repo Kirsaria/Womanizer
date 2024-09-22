@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,17 +24,32 @@ namespace Womanizer
         public MainWindow()
         {
             InitializeComponent();
-            SetSeasonalCalendars();
+            Calendar2.DisplayDate = new DateTime(2024, 10, 01);
+            Calendar3.DisplayDate = new DateTime(2024, 11, 01);
         }
-        private void SetSeasonalCalendars()
+        private bool isUpdating = false;
+        private void Calendar1_DisplayDateChanged(object sender, CalendarDateChangedEventArgs e)
         {
-            DateTime now = DateTime.Now;
-            if (now.Month >= 6 && now.Month <= 8) // Лето
+            if (isUpdating) return;
+
+            try
             {
-                Calendar1.Visibility = Visibility.Visible;
-                Calendar2.Visibility = Visibility.Visible;
-                Calendar3.Visibility = Visibility.Visible;
+                isUpdating = true;
+
+                // Изменяем дату первого календаря на 3 месяца вперед
+                Calendar1.DisplayDate = Calendar1.DisplayDate.AddMonths(2);
+
+                // Изменяем даты последующих календарей
+                DateTime nextMonth1 = Calendar1.DisplayDate.AddMonths(1);
+                Calendar2.DisplayDate = nextMonth1;
+                DateTime nextMonth2 = Calendar1.DisplayDate.AddMonths(2);
+                Calendar3.DisplayDate = nextMonth2;
+            }
+            finally
+            {
+                isUpdating = false;
             }
         }
+
     }
 }
